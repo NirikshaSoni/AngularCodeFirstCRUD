@@ -12,6 +12,11 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+- script: npm install
+- script: ng build
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '300'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
